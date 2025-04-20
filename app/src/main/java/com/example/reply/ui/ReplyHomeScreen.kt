@@ -133,6 +133,7 @@ fun ReplyHomeScreen(
         } else {
             ReplyDetailsScreen(
                 replyUiState = replyUiState,
+                isFullScreen = true,
                 onBackPressed = onDetailScreenBackPressed,
                 modifier = modifier
             )
@@ -177,21 +178,17 @@ private fun ReplyAppContent(
                     ReplyListOnlyContent(
                         replyUiState = replyUiState,
                         onEmailCardPressed = onEmailCardPressed,
-                        modifier = Modifier
-                            .weight(1f)
+                        modifier = Modifier.weight(1f)
                             .padding(
                                 horizontal = dimensionResource(R.dimen.email_list_only_horizontal_padding)
                             )
                     )
                 }
-                val bottomNavigationContentDescription = stringResource(R.string.navigation_bottom)
                 AnimatedVisibility(visible = navigationType == ReplyNavigationType.BOTTOM_NAVIGATION) {
                     ReplyBottomNavigationBar(
                         currentTab = replyUiState.currentMailbox,
                         onTabPressed = onTabPressed,
-                        navigationItemContentList = navigationItemContentList,
-                        modifier = Modifier
-                            .fillMaxWidth()
+                        navigationItemContentList = navigationItemContentList
                     )
                 }
             }
