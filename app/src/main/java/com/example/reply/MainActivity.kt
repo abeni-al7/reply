@@ -42,6 +42,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
+
         setContent {
             ReplyTheme {
                 val layoutDirection = LocalLayoutDirection.current
@@ -55,8 +56,9 @@ class MainActivity : ComponentActivity() {
                         )
                 ) {
                     val windowSize = calculateWindowSizeClass(this)
+
                     ReplyApp(
-                        windowSize = windowSize.widthSizeClass
+                        windowSize = windowSize.widthSizeClass,
                     )
                 }
             }
@@ -70,7 +72,7 @@ fun ReplyAppCompactPreview() {
     ReplyTheme {
         Surface {
             ReplyApp(
-                windowSize = WindowWidthSizeClass.Compact
+                windowSize = WindowWidthSizeClass.Compact,
             )
         }
     }
@@ -82,7 +84,7 @@ fun ReplyAppMediumPreview() {
     ReplyTheme {
         Surface {
             ReplyApp(
-                windowSize = WindowWidthSizeClass.Medium
+                windowSize = WindowWidthSizeClass.Medium,
             )
         }
     }
@@ -94,7 +96,7 @@ fun ReplyAppExpandedPreview() {
     ReplyTheme {
         Surface {
             ReplyApp(
-                windowSize = WindowWidthSizeClass.Expanded
+                windowSize = WindowWidthSizeClass.Expanded,
             )
         }
     }
